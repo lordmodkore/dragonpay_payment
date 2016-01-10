@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <PixelPlusOne_DragonPay>
+      <version>1.0.0</version>
+    </PixelPlusOne_DragonPay>>
+  </modules>
+  <global>
+    <models>
+      <dragonpay>
+        <class>PixelPlusOne_DragonPay_Model</class>
+      </dragonpay>
+    </models>
+    <helpers>
+      <dragonpay>
+        <class>PixelPlusOne_DragonPay_Helper</class>
+      </dragonpay>
+    </helpers>
+    <blocks>
+      <dragonpay>
+        <class>PixelPlusOne_DragonPay_Block</class>
+      </dragonpay>
+    </blocks>
+
+  </global>
+  <default>
+    <payment>
+      <dragonpay>
+        <model>dragonpay/standard</model>
+        <active>1</active>
+        <order_status>pending</order_status>
+        <title>Dragon Pay</title>
+        <payment_action>sale</payment_action>
+        <allowspecific>0</allowspecific>
+        <sort_order>1</sort_order>
+      </dragonpay>
+    </payment>
+  </default>
+  <admin>
+      <routers>
+          <adminhtml>
+            <use>admin</use>
+              <args>
+                  <modules>
+                      <PixelPlusOne_DragonPay before="Mage_Adminhtml">PixelPlusOne_DragonPay_Adminhtml</PixelPlusOne_DragonPay>
+                  </modules>
+              </args>
+          </adminhtml>
+      </routers>
+  </admin>
+  <frontend>
+    <routers>
+      <dragonpay>
+        <use>standard</use>
+        <args>
+          <module>PixelPlusOne_DragonPay</module>
+          <frontName>dragonpay</frontName>
+        </args>
+      </dragonpay>
+    </routers>
+  </frontend>
+</config>
